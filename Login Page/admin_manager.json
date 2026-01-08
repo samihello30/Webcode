@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "Samuel",
+        "last_name": "Akintola",
+        "email_address": null,
+        "phone_number": "09069123150",
+        "password": "scrypt:32768:8:1$45r1Q1bygkkkwS4E$05ef1a72cabc8f474baeeac3454d6f151915ab93a9a5db027bd18424ecd0dd0916638779909aeae4b33992b6ec3fefba21fd43af5897c430d4082210d7605023",
+        "checkbox": "on"
+    },
+    {
+        "first_name": "Omotayo",
+        "last_name": "Akintola",
+        "email_address": "akintolasamuel30@gmail.com",
+        "phone_number": null,
+        "password": "scrypt:32768:8:1$m49xy6lrnGpAyhvu$d9d3d3cb3acd5f9204b8fb29c99bcec2f2e85a8dbf85b5cc7a3a0bf98454017250840f21af3e6d7b202d2e56ece17e314aa4f8b47034d2b9886912d72a465e2e",
+        "checkbox": "on"
+    }
+]

@@ -1,0 +1,149 @@
+/* --- Header & Footer --- */
+header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 1.0em 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+footer {
+  background: #222;
+  color: #bbb;
+  text-align: center;
+  padding: 5px 0;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* --- Main Layout --- */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+section {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+form div {
+  margin-bottom: 1.2rem;
+}
+
+/* --- Navigation Base (The Tabs) --- */
+nav {
+  margin: 10px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+
+/* --- Header Nav Styling (Login/Signup) --- */
+header nav a {
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Stay permanent when active */
+header nav a.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white !important;
+  font-weight: bold;
+}
+
+/* --- Signup Choice Styling (Phone/Email) --- */
+section nav a {
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+/* Stay permanent when active */
+section nav a.active {
+  background: #3498db !important;
+  color: white !important;
+  border-color: #3498db !important;
+  font-weight: bold;
+}
+
+/* --- Inputs & Password Toggle --- */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* --- Buttons --- */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}

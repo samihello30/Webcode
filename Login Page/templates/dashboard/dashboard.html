@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block heading %}Dashboard{% endblock %}
+
+{% block main %}
+Welcome back {{ name }}
+{% endblock %}
+
+{% block footer %}
+<p><a href="{{ url_for('out.logout') }}">Logout</a></p>
+{% endblock %}

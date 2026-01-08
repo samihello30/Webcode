@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+
+{% block css %}
+href="{{ url_for('static', filename='login_signup.css') }}"
+{% endblock %}
+
+{% block title %}Login and Signup{% endblock %}
+{% block heading %}
+<nav>
+    <a href="{{ url_for('auth.login_signup', option='login') }}" 
+       class="{% if option == 'login' %}active{% endif %}">Login</a>
+       
+    <a href="{{ url_for('auth.login_signup', option='signup', choose='phone') }}" 
+       class="{% if option == 'signup' %}active{% endif %}">Signup</a>
+</nav>
+
+{% endblock %}
+
+{% block main %}
+
+<section>
+		{% if option == "login" %}
+		<h2>Welcome Back</h2>
+		<form class="form-login" action="{{ url_for('auth.login_signup', option='login') }}" method="post">
+				<div>
+						<input type="text" name="email_phone" placeholder="Email or Phone">
+				</div>
+				
+				<div>
+						<input type="password" name="password" placeholder="Password">
+				</div>
+				
+				<div>
+						<button type="submit">Login</button>
+				</div>
+		</form>
+</section>
+{% endif %}
+
+{% if option == "signup" %}
+<section>
+		<h2>Join Us</h2>
+		<nav>
+    <a href="{{ url_for('auth.login_signup', option='signup', choose='phone') }}" 
+       class="{% if choose == 'phone' %}active{% endif %}">Phone</a>
+       
+    <a href="{{ url_for('auth.login_signup', option='signup', choose='email') }}" 
+       class="{% if choose == 'email' %}active{% endif %}">Email</a>
+</nav>
+
+
+		<form class="form-signup" action="{{ url_for('auth.login_signup', option='signup', choose='choose }}') }}" method="post">
+				<div>
+						<input type="text" name="firstName" placeholder="First Name" autocomplete="on" required="">
+				</div>
+				
+				<div>
+						<input type="text" name="lastName" placeholder="Last Name" autocomplete="on" required>
+				</div>
+				
+				{% if email %}
+				<div>
+						<input type="email" name="email" placeholder="Email Address" autocomplete="on" required >
+				</div>
+			 
+				{% elif phone %}
+				<div>
+						<input type="tel" name="phone" placeholder="Mobile Number" required>
+				</div>
+				{% endif %}
+				
+				<div>
+						<input type="password" name="password" placeholder="Password" required>
+				</div>
+				
+				<div>
+						<input type="password" name="confirm_password" placeholder="Confirm Password" required>
+				</div>
+				
+				<div>
+						<input type="checkbox" id="checkbox" name="checkbox" required checked >
+						<label for="checkbox">Accept our <a href="">terms</a> and <a href="">condition</a></label>
+				</div>
+				
+				<div>
+						<button type="submit">Signup</button>
+				</div>
+		</form>
+</section>
+{% endif %}
+
+{% endblock %}
