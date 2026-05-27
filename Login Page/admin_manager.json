@@ -14,5 +14,13 @@
         "phone_number": null,
         "password": "scrypt:32768:8:1$m49xy6lrnGpAyhvu$d9d3d3cb3acd5f9204b8fb29c99bcec2f2e85a8dbf85b5cc7a3a0bf98454017250840f21af3e6d7b202d2e56ece17e314aa4f8b47034d2b9886912d72a465e2e",
         "checkbox": "on"
+    },
+    {
+        "first_name": "Omotayo",
+        "last_name": "Alaba",
+        "email_address": null,
+        "phone_number": "09069123150",
+        "password": "scrypt:32768:8:1$oP3Er0xGOsz4v0y4$9e2790b31f41575afe9b5b08f39ede3a03179695435a20178996a16547e70248519b24875c51f20acfcbd11ea388c029f21768d5d69dd4845c55e905f381a60f",
+        "checkbox": "on"
     }
 ]

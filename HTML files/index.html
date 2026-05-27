@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This is a login page for Samuel Akintola website">
+				<link rel="icon" href="" type="image/x-icon">
+				<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+				<title>Login to your account</title>
+</head>
+<body>
+				<header>
+				<h1>
+							Welcome Back
+				</h1>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<h2>Login to your account</h2>
+												<form method="POST">
+																<p>
+																<label for="email">Username</label><br>
+																<input id="email" name="email" type="email" required autocomplete="on">
+																</p>
+																
+																<p>
+																<label for="password">Password</label><br>
+																<input id="password" name="password" type="password" required>
+												</p>
+																
+																<p>
+  <input type="checkbox" name="remember" id="remember">
+  <label for="remember">Remember me</label>
+</p>
+																
+																<p>Don't have an account? <a href="signup.html" target="_blank">Sign up</a></p>
+																
+																<p>
+																				<button type="submit">Login</button>
+																</p>
+												</form>
+								</article>
+				</main>
+				
+				<hr>
+				
+				<footer>
+								<p>&copy; Samuel Akintola 2025. All rights reserved.</p>
+				</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="viewport" content="device-width, initial-scale=1.0">
+				<title>My to_do list</title>
+				<style>
+				/* General reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Main container */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Form styling */
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+input[type="text"] {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #357ab8;
+  transform: scale(1.05);
+}
+
+/* Tasks section */
+section {
+  margin-top: 2rem;
+}
+
+section h2 {
+  color: #4a90e2;
+  margin-bottom: 1rem;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+li {
+  background: #f0f4ff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Delete button */
+a button {
+  background: #e74c3c;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+a button:hover {
+  background: #c0392b;
+}
+				</style>
+</head>
+<body>
+				<header>
+				<h1>
+								To_do List
+				</h1>
+				</header>
+				
+				<main>
+								<form action="{{ url_for('main') }}" method="post">
+												<div>
+																<label for="tasks">Enter Tasks</label><br>
+																<input type="text" id="tasks" name="tasks" required>
+																<button type="submit">Add Tasks</button>
+												</div>
+								</form>
+								
+								<section>
+												<h2>Your Tasks</h2>
+												{% if all_tasks %}
+																{% for tasks in all_tasks %}
+																				{%for key, value in tasks.items()%}
+																								<ul>
+																												<li>{{ key }} | added on {{ value }}</li>
+																								</ul>
+																								<a href="{{ url_for('delete', id=loop.index0) }}"><button>Delete</button></a>
+																				{%endfor%}
+																{% endfor %}
+												{% else %}
+																<p>No tasks available currently</p>
+																
+												{% endif%}
+							</section>
+						
+				</main>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* --- Universal Reset and Box-Sizing --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* --- Body and Layout Styling --- */
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* --- Header Styling --- */
+header {
+    background-color: #4b0082; /* Indigo */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* --- Article/Form Container Styling --- */
+article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+article h2 {
+    text-align: center;
+    color: #4b0082; /* Indigo */
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+
+/* --- Form Element Styling --- */
+form p {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: indigo;
+}
+
+/* --- Inputs styled like feedback page --- */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #c9c9ff;
+    border-radius: 6px;
+    background: #f7f7ff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: indigo;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px #f1c40f33;
+}
+
+/* --- 'Remember Me' (Left) and 'Forgot Password' (Right) --- */
+form p:nth-last-child(4) { 
+    display: inline-block;
+    float: left;
+    text-align: left;
+    margin-bottom: 15px;
+    width: 50%; 
+    font-size: 0.9em;
+}
+
+form p:nth-last-child(3) { 
+    display: inline-block;
+    float: right;
+    text-align: right;
+    margin-bottom: 15px;
+    width: 50%; 
+    font-size: 0.9em;
+}
+
+form p:nth-last-child(3):after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form p:nth-last-child(2) {
+    text-align: center;
+    clear: both;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+    accent-color: #4b0082; /* Indigo */
+}
+
+p label[for="remember_me"] {
+    display: inline;
+    font-weight: 400;
+}
+
+/* --- Button Styling --- */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4b0082; /* Indigo */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3a0066; /* Darker Indigo */
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* --- Link Styling --- */
+/* Forgot password + Sign up links should be blue */
+form p:nth-last-child(3) a,
+form p:nth-last-child(2) a {
+    color: #007bff; /* Blue */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+form p:nth-last-child(3) a:hover,
+form p:nth-last-child(2) a:hover {
+    color: #0056b3; /* Darker Blue */
+    text-decoration: underline;
+}
+
+/* Other links (general) */
+a {
+    color: #4b0082; /* Indigo */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #f1c40f; /* Gold */
+    text-decoration: underline;
+}
+
+/* --- Footer Styling --- */
+footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer nav {
+  background: black;
+  border-top: 4px solid #f1c40f; 
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer nav a {
+  color: #f1c40f;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer nav a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+footer p {
+  background: indigo;
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 0.9em;
+  color: white;
+}
+
+footer p a {
+  color: #f1c40f;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* --- Flash Messages --- */
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flashes li {
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 600;
+}
+
+.flashes li.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.flashes li.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.flashes li.info {
+  background: #cce5ff;
+  color: #004085;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  form p:nth-last-child(4), 
+  form p:nth-last-child(3) { 
+    width: 48%;
+  }
+  footer nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

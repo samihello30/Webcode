@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">{% endblock %}
+
+{% block title %}Generate Link{% endblock %}
+
+{% block main %}
+  <section class="card form-wrap">
+    <h2 class="form-title">Create your WhatsApp link</h2>
+
+    <form method="post" action="{{ url_for('wa.whatsapp_link') }}" class="wa-form" novalidate>
+      <div class="field">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" name="phoneNumber" id="phoneNumber"
+               placeholder="E.g. +23490XXXXXXXX" inputmode="tel" autocomplete="tel" required>
+        <small class="hint">Include country code (e.g. +234...)</small>
+      </div>
+
+      <div class="field">
+        <label for="text">Message</label>
+        <textarea name="text" id="text" rows="4" maxlength="50"
+                  placeholder="Max 50 characters" required></textarea>
+        <div class="meta"><span id="count">0</span>/50</div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Generate</button>
+        <button type="reset" class="btn btn-ghost">Clear</button>
+      </div>
+    </form>
+  </section>
+
+  {% if generated %}
+  <section class="card result">
+    <h2>Your Link</h2>
+    <div class="link-row">
+      <input class="link-box" type="text" readonly
+             value="{{ url_for('open.open', link=generated, _external=True) }}">
+      <button class="btn" id="copyBtn" type="button">Copy</button>
+      <a class="btn btn-primary" target="_blank"
+         href="{{ url_for('open.open', link=generated) }}">Open</a>
+    </div>
+  </section>
+
+  <script>
+    // character counter
+    const t = document.getElementById('text'), c = document.getElementById('count');
+    if (t && c) { const u=()=>c.textContent=t.value.length; t.addEventListener('input',u); u(); }
+    // copy
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) copyBtn.onclick = async () => {
+      const v = document.querySelector('.link-box').value;
+      try { await navigator.clipboard.writeText(v); copyBtn.textContent='Copied!'; setTimeout(()=>copyBtn.textContent='Copy',1200); } catch(e){}
+    };
+  </script>
+  {% endif %}
+{% endblock %}

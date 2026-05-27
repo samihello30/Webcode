@@ -1,0 +1,240 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Main heading */
+h1 {
+  text-align: center;
+  background: indigo;            /* indigo background */
+  color: #fff;                   /* white text */
+  padding: 25px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #f1c40f; /* golden accent */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 0 0 15px 15px;
+}
+
+/* Tagline */
+main > p {
+  text-align: center;
+  font-style: italic;
+  margin: 12px 0 20px;
+  color: #555;
+  font-size: 1.4rem;   /* increased font size */
+  font-weight: bold;   /* optional: makes it stand out more */
+}
+
+/* Navigation bar */
+header {
+  background: #111; /* deep black */
+  padding: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+nav a {
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: #f1c40f;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Sections */
+section {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: 25px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  color: #000;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+section h3 {
+  margin-top: 15px;
+  color: #333;
+}
+
+/* Lists with custom arrow bullets */
+ul {
+  list-style: none;
+  margin: 8px 0 15px 12px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.95rem;
+}
+
+li::before {
+  content: "➤";          /* arrow bullet */
+  position: absolute;
+  left: 0;
+  color: #f1c40f;        /* golden arrow */
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* Contact section full width with indigo background */
+#contact {
+  width: 100%;
+  background: black;             /* indigo background */
+  color: #fff;
+  padding: 18px 20px;             /* compact height */
+  border-top: 3px solid #f1c40f;  /* golden accent */
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+#contact h2 {
+  color: #f1c40f;                 /* golden heading */
+  border-bottom: 2px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+#contact h3 {
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+#contact ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+#contact li {
+  margin-bottom: 6px;
+  font-weight: bold;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+#contact li::before {
+  content: none;
+}
+
+#contact a {
+  color: #f1c40f;                 /* golden links */
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+  color: #fff;                    /* invert on hover */
+}
+
+/* Promo banner between contact and footer */
+#promo {
+  width: 100%;
+  background: indigo;             /* indigo background */
+  color: #fff;                    /* white text */
+  text-align: center;             /* center text */
+  padding: 20px 12px;             /* taller for emphasis */
+  font-size: 1.6rem;              /* larger font size */
+  font-weight: bold;              /* bold text */
+  border-top: 2px solid #f1c40f;  /* golden separator */
+  border-bottom: 2px solid #f1c40f;
+}
+
+#promo p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: indigo;             /* indigo background */
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  margin-top: 0;
+  border-radius: 0;
+  font-size: 0.90rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    padding: 18px;
+  }
+
+  section {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  main > p {
+    font-size: 0.85rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  section h2 {
+    font-size: 1rem;
+  }
+
+  section h3 {
+    font-size: 0.9rem;
+  }
+
+  li {
+    font-size: 0.85rem;
+  }
+
+  #promo {
+    font-size: 1.3rem;            /* slightly smaller on mobile */
+    padding: 16px 8px;
+  }
+}

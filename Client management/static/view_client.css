@@ -1,0 +1,243 @@
+/* view_client.css - Client Viewing Page Styling (Final Modifications) */
+
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Body and Base Styles --- */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  text-align: center;
+  background: indigo;
+  color: #fff;
+  padding: 30px;
+  border-bottom: 4px solid #f1c40f; /* Golden accent */
+}
+
+header h1 {
+  font-size: 1.45rem;
+  margin-bottom: 0;
+  letter-spacing: 1.5px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0;
+}
+
+/* --- Main Content Container --- */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 25px 20px;
+}
+
+article {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Section Header */
+article section h2 {
+  color: indigo;
+  margin-bottom: 25px;
+  font-size: 1.4rem;
+  text-align: left;
+  border-bottom: 2px solid #f1c40f; 
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* --- Client Details (Collapsible Cards) --- */
+details {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden; 
+}
+
+summary {
+  cursor: pointer;
+  padding: 15px 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+  color: indigo;
+  list-style: none; 
+  font-weight: bold;
+}
+
+summary::before {
+  content: '▶';
+  margin-right: 10px;
+  font-size: 0.9em;
+  color: #f1c40f;
+  transition: transform 0.2s;
+}
+details[open] > summary::before {
+  content: '▼';
+}
+
+details ul {
+  list-style: none;
+  padding: 10px 20px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px 20px;
+}
+
+details li {
+  padding: 5px 0;
+  border-bottom: 1px dotted #e0e0e0;
+  word-break: break-word;
+  font-weight: normal;
+}
+
+details li::first-line {
+  font-weight: bold;
+  color: #222;
+}
+
+/* --- Link Styling --- */
+a {
+  color: indigo;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #f1c40f;
+  text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 30px;
+  padding: 0;
+  display: block; 
+}
+
+/* Section (Back to Dashboard, Log out, Send feedback) */
+footer section {
+  background: black;
+  border-top: 4px solid #f1c40f; 
+  padding: 12px 20px;
+  display: flex;                /* side by side */
+  justify-content: center;
+  gap: 15px;                    /* spacing between buttons */
+}
+
+footer section a {
+  background-color: black;     /* compact button style */
+  color: whitesmoke;
+  padding: 6px 12px;            /* smaller padding */
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;          /* prevents wrapping */
+  flex: 0 0 auto;               /* don’t stretch full width */
+  display: inline-block;        /* keep them compact */
+  transition: background-color 0.3s;
+}
+
+footer section a:hover {
+  background-color: #f1c40f;
+  color: black;
+}
+
+/* Bottom copyright line */
+footer p {
+  background: indigo;
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 0.9em;
+  color: white;
+}
+
+footer p a {
+  color: #f1c40f;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 650px) {
+  details ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 20px 10px;
+  }
+  footer section {
+    flex-direction: row;   /* keep side by side */
+    flex-wrap: wrap;       /* allow wrapping if too narrow */
+    gap: 6px;
+    padding: 10px;
+  }
+  footer section a {
+    font-size: 0.85em;     /* slightly smaller text */
+    width: auto;           /* don’t stretch full width */
+    flex: 0 0 auto;        /* keep compact */
+  }
+}
+
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flashes li {
+  width: 100%;             /* full width across screen */
+  text-align: center;      /* center the text inside */
+  padding: 12px 0;         /* vertical spacing */
+  font-weight: 600;
+}
+
+/* Success message */
+.flashes li.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Error message */
+.flashes li.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Info message */
+.flashes li.info {
+  background: #cce5ff;
+  color: #004085;
+}

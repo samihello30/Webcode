@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This page is the home page for the client manager">
+				<link rel="icon" href="" type="image/x-icon">
+				<link rel="stylesheet" href="" type="text/css">
+				<title>Client Management</title>
+</head>
+<body>
+				{% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+				<header>
+				<h1>
+								Client Manager
+				</h1>
+								<p>Welcome to Client Manager where all clients information are managed.</p>
+								<p>
+												<a href="{{ url_for('signup') }}">Sign up</a> | <a href="{{ url_for('login') }}">Login</a>
+								</p>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<ul></ul>
+								</article>
+				</main>
+				
+				<hr>
+				
+				<footer>
+								<p><a href="{{ url_for('feedback', mode='homepage') }}"   target="_blank">Send feeback</a></p>
+								<p>&copy; <a href="{{ url_for('aboutme') }}"  target="_blank">Samuel Akintola</a> 2025. All right reserved.</p>
+				</footer>
+</body>
+</html>

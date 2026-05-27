@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This page is the add client page">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<link rel="icon" href="" type="image/x-icon">
+				<link rel="stylesheet" href="{{ url_for('static', filename='add_client.css') }}" type="text/css">
+				<title>Client Management</title>
+</head>
+<body>
+				{% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+				<header>
+				<h1>
+								{{ business_name }}
+				</h1>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<h2>Add a New Client</h2>
+												<form method="POST" action="{{ url_for('add_client') }}">
+												<p>
+																<label for="firstName">First Name</label><br>
+												<input type="text" name="firstName" id="firstName" autocomplete="on" required placeholder="e.g. John">
+												</p>
+												
+												<p>
+																<label for="lastName">Last Name</label><br>
+												<input type="text" name="lastName" id="lastName" autocomplete="on" required placeholder="e.g. Doe">
+												</p>
+																
+																<p>
+																<label for="phone_number">Phone Number</label><br>
+												<input type="tel" name="phone_number" id="phone_number" autocomplete="on" required placeholder="e.g. 08000000000">
+												</p>
+												
+												<p>
+																<label for="department">Department</label><br>
+												<input type="text" name="department" id="department" autocomplete="on" required placeholder="e.g. Anatomy">
+												</p>
+												
+												<p>
+																<label for="matric_number">Matric Number</label><br>
+												<input type="text" name="matric_number" id="matric_number" autocomplete="on" required placeholder="e.g. 0001">
+												</p>
+												
+												<p>
+																<label for="topic">Topic</label><br>
+												<input type="text" name="topic" id="topic" autocomplete="on" required placeholder="e.g. Doe">
+												</p>
+																
+																<p>
+																				<button type="submit">Add Client</button>
+																</p>
+												</form>
+								</article>
+				</main>
+				
+				<hr>
+				
+					<footer>
+									<p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+									<p><a href="{{ url_for('logout') }}">Log out</a></p>
+								<p><a href="{{ url_for('feedback', mode='add_client') }}" target="_blank">Send feeback</a></p>
+								<p>&copy; <a href="{{ url_for('aboutme') }}"  target="_blank">Samuel Akintola</a> 2025. All right reserved.</p>
+				</footer>
+</body>
+</html>

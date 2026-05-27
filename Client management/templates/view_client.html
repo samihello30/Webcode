@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <meta name="author" content="Samuel Akintola">
+    <meta name="description" content="This page is the view client page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_client.css') }}" type="text/css">
+    <title>Client Management</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+    <header>
+        <h1>{{ business_name }}</h1>
+    </header>
+    
+    <hr>
+    
+    <main>
+        <article>
+            <section>
+                <h2>Your Clients</h2>
+                {% for information in details %}
+                <details>
+                    <summary>
+                        <strong>{{ information["First Name"] }} {{ information["Last Name"] }}</strong>
+                    </summary>
+                    <ul>
+                        <li>First Name: {{ information["First Name"] }}</li>
+                        <li>Last Name: {{ information["Last Name"] }}</li>
+                        <li>Phone Number: {{ information["Phone Number"] }}</li>
+                        <li>Department: {{ information["Department"] }}</li>
+                        <li>Matric Number: {{ information["Matric Number"] }}</li>
+                        <li>Topic: {{ information["Topic"] }}</li>
+                        <li>Total Payment: {{ information["Total Payment"] }}</li>
+                        <li>Total Paid: {{ information["Total Paid"] }}</li>
+                        <li>Refer: {{ information["Refer"] }}</li>
+                        <li>Referred: {{ information["Referred"] }}</li>
+                        <li>Referral Code: {{ information["Referral Code"] }}</li>
+                        <li>Join Date: {{ information["Join Date"] }}</li>
+                        <li>Completed: {{ information["Completed"] }}</li>
+                    </ul>
+                </details>
+                {% endfor %}
+            </section>
+        </article>
+    </main>
+    
+    <hr>
+    
+    <footer>
+        <section>
+            <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+            <a href="{{ url_for('logout') }}">Log out</a>
+            <a href="{{ url_for('feedback', mode='add_client') }}" target="_blank">Send feedback</a>
+        </section>
+        
+        <p>&copy; <a href="{{ url_for('aboutme') }}" target="_blank">Samuel Akintola</a> 2025. All rights reserved.</p>
+    </footer>
+</body>
+</html>

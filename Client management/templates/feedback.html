@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This page is the feedback page.">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<link rel="icon" href="" type="image/x-icon">
+				<link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}" type="text/css">
+				<title>Password Recovery</title>
+</head>
+<body>
+				{% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+				<header>
+				<h1>
+								Send Feedback
+				</h1>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<form method="post" action="{{ url_for('feedback', mode=mode) }}">
+																<p>
+																				<label for="fullName">Full Name</label><br>
+																				<input type="text" id="fullName" name="fullName" autocomplete="on" required placeholder="e.g. John Doe">
+																</p>
+																
+																<p>
+																				<label for="email">Email</label><br>
+																				<input type="email" id="email" name="email" autocomplete="on" required placeholder="e.g. example.gmail.com">
+																</p>
+																
+																<p>
+																				<label for="message">Enter Massage</label><br>
+																<textarea id="message" name="message" rows="3" cols="23" maxlength="150" placeholder="Max: 150 charaters" required></textarea>
+																</p>
+																
+																<p>
+																				<button type="submit">Send</button>
+																</p>
+												</form>
+								</article>
+				</main>
+				
+				<hr>
+				
+				<footer>
+								<nav>
+								<a href="{{ url_for('homepage') }}">Back home</a>
+				</nav>
+				
+				<p>&copy; <a href="{{ url_for('aboutme') }}"  target="_blank">Samuel Akintola</a> 2025. All right reserved.</p>
+				</footer>
+</body>
+</html>

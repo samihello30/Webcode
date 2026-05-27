@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<title>{% block title %}Defalut Title{% endblock %}</title>
+				<meta name="viewport" content="device-width, initial-scale=1.0">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="{% block description %}This is a production page{% endblock %}">
+				<link rel="icon" type="image/x-icon" href="">
+</head>
+<body>
+				{% with messages = get_flashed_messages(with_categories=True) %}
+								{% if messages %}
+												{% for category, message in messages %}
+																<ul class="flashes">
+																				<li class="{{ category }}">{{ message }}</li>
+																</ul>
+												{% endfor %}
+								{% endif %}
+				{% endwith %}
+				<header>
+				<h1>
+								{% block heading %}Default Heading{% endblock %}
+				</h1>
+				</header>
+				
+				<main>
+								{% block content%}
+								{% endblock %}
+				</main>
+				
+				<footer>
+								{% block footer %}{%  endblock%}
+								<p>&copy; Samuel Akintola, All Right Reserved.</p>
+				</footer>
+</body>
+</html>

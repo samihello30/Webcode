@@ -1,0 +1,219 @@
+/* sub_admin.css - Dashboard Styling */
+
+/* --- Universal Reset and Box-Sizing --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* --- Body and Layout Styling --- */
+body {
+    background-color: #f4f7f6; /* Consistent light gray background */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer sticks to the bottom */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 0 0;
+}
+
+/* --- Header Styling (Consistent Blue and Reduced Height) --- */
+header {
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.6em; /* Consistent reduced H1 size */
+    font-weight: 600;
+    margin: 0;
+}
+
+/* --- Article/Dashboard Container Styling --- */
+article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px; /* Wider for the main dashboard content */
+    text-align: center;
+}
+
+article h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* --- Menu Section Styling --- */
+article section {
+    margin-top: 20px;
+}
+
+section h3 {
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1.3em;
+}
+
+/* List Styling (Main Menu) */
+ul {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    flex-wrap: wrap; /* Allows menu items to wrap to the next line */
+    justify-content: center;
+    padding: 0;
+    gap: 15px; /* Space between menu items */
+}
+
+li {
+    background-color: #f0f4f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex-basis: 45%; /* Two items per row on larger screens */
+    min-width: 150px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+li:hover {
+    background-color: #e0e6eb;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+li a {
+    display: block; /* Makes the entire block clickable */
+    padding: 15px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+/* --- Footer Styling (Black/Indigo Split - Three Paragraphs) --- */
+footer {
+    padding: 0;
+    background-color: transparent;
+    text-align: center;
+    font-size: 0.85em;
+    color: white;
+    /* Flexbox on footer to handle p tags side-by-side/stacking */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+/* 1. First two paragraphs (Log out, Send feedback) for the Black background and side-by-side display */
+footer p:nth-child(1),
+footer p:nth-child(2) {
+    display: inline-block;
+    background-color: black; 
+    padding: 10px 20px;
+    margin: 0;
+    width: 50%; /* 50/50 split for side-by-side */
+    box-sizing: border-box;
+}
+
+/* Align links within their 50% container */
+footer p:nth-child(1) {
+    text-align: right; /* Log out aligned right */
+    padding-right: 10px;
+}
+footer p:nth-child(2) {
+    text-align: left; /* Send feeback aligned left */
+    padding-left: 10px;
+}
+
+/* Make links visible against the black background */
+footer p:nth-child(1) a, 
+footer p:nth-child(2) a {
+    color: lightgray; 
+    text-decoration: none;
+}
+
+/* 2. Style the third paragraph (Copyright) for the Indigo background */
+footer p:nth-child(3) {
+    background-color: indigo; 
+    color: white;
+    padding: 10px 20px;
+    margin: 0;
+    width: 100%; 
+}
+
+/* Adjust link color inside the indigo paragraph */
+footer p:nth-child(3) a {
+    color: lightblue;
+}
+
+/* --- Media Queries for small screens (Mobile adjustments) --- */
+@media (max-width: 650px) {
+    /* Menu: Stack items to one per row on smaller screens */
+    ul {
+        gap: 10px;
+    }
+    li {
+        flex-basis: 95%; /* Make menu items fill the width */
+    }
+}
+
+@media (max-width: 500px) {
+    /* Footer: Stack the "Log out" and "Send feedback" paragraphs vertically on mobile */
+    footer p:nth-child(1),
+    footer p:nth-child(2) {
+        width: 100%;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flashes li {
+  width: 100%;             /* full width across screen */
+  text-align: center;      /* center the text inside */
+  padding: 12px 0;         /* vertical spacing */
+  font-weight: 600;
+}
+
+/* Success message */
+.flashes li.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Error message */
+.flashes li.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Info message */
+.flashes li.info {
+  background: #cce5ff;
+  color: #004085;
+}

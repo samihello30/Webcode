@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found{%  endblock%}
+{% block heading %}404 Error{% endblock %}
+
+{% block content %}
+<p>Oop! This page doesn't exist! <a href="{{ url_for('login') }}">Go back to home</a></p>
+{% endblock %}

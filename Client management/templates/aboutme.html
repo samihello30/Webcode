@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Samuel Akintola" />
+  <meta name="description" content="This page showcase my portfolio of improvement, and the documentation" />
+ <link rel="stylesheet" href="{{ url_for('static', filename='aboutme.css') }}" type="text/css" />
+  <title>Samuel Akintola's Portfolio</title>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<l class="{{ category }}">{{ message }}</l>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+  <header>
+    <h1>My Portfolio</h1>
+    <p>Web Developer | Content Manager | Author</p>
+    <p>Hi Visitor! Welcome to my portfolio where I document my works</p>
+  </header>
+
+  <hr />
+
+  <main>
+    <article>
+      <h2 id="">What I Do</h2>
+
+      <p>I'm a beginner Web Developer</p>
+      <h3>I Pick Interest In</h3>
+      <section>
+        <article>
+          <details>
+            <summary><strong>Python</strong></summary>
+            <img src="image/Python-Symbol.jpg" alt="Python3 Logo" loading="lazy" width="150">
+            <p>
+              Python is a beginner-friendly programming language for is easy to
+              read syntax.</p>
+            <section>
+              <h4>My Python Projects</h4>
+              <ul>
+                <li>To_Do List</li>
+                <li>Thrift System</li>
+                <li>Client Manager</li>
+              </ul>
+              <aside>All programs were written with Tkinter for <abbr title="Graphical User Interface">GUI</abbr></aside>
+            </section>
+
+            <section>
+              <h4>Future Plan With Python</h4>
+              <ul>
+                <li>I will develop myself into using Python for Web Development.</li>
+                <li>I will also love to know how to use Python for AI and Machine learning.</li>
+                <li>I want to learn Python for backend developing.</li>
+              </ul>
+            </section>
+
+          </details>
+        </article>
+        <br />
+
+        <details>
+          <summary><strong>HTML and CSS</strong></summary>
+          <img src="image/images.jpg" alt="HTML5 Logo" loading="lazy" width="100">
+          <p>
+            <abbr title="Hypertext Markup Language">HTML</abbr> is also
+            fun to learn, but CSS seems complex.
+          </p>
+        </details>
+        <br />
+    </article>
+
+    <hr />
+
+    <section>
+      <h3>Also Pick Interest In</h3>
+      <details>
+        <summary><strong>Content Creator</strong></summary>
+        <p>
+          I'm a motivator content creator with the will to encourage and
+          motivate people into discovering themselves.
+        </p>
+      </details>
+      <br />
+
+      <details>
+        <summary><strong>Author</strong></summary>
+        <p>
+          I'm a Memoir writer with the goal to share my findings and
+          experience about life with my reader.
+        </p>
+      </details>
+    </section>
+    <br />
+
+    <hr>
+
+    <section>
+      <form action="submit" method="get">
+        <h2>Contact Me</h2>
+        <p><label for="firstName"></label><strong>First Name</strong><br><br>
+          <input type="text" id="firstName" name="firstName" autocomplete="on" placeholder="e.g. John" required>
+        </p>
+        <p><label for="lastName"></label><strong>Last Name</strong><br><br>
+          <input type="text" id="lastName" name="lastName" autocomplete="on" placeholder="e.g. Doe" required>
+        </p>
+        </p>
+        <p><label for="message"></label><strong>Enter Your Message</strong><br><br>
+          <textarea id="message" name="message" placeholder="Max: 100 Characters." rows="3" cols="22"
+            required></textarea>
+        </p>
+
+        <p>
+          <button type="submit" >Send</button>
+        </p>
+      </form>
+
+    </section>
+    </article>
+  </main>
+
+  <hr />
+
+  <footer>
+    <article>
+      <h2>Reach Out With</h2>
+      <p>Email: <a href="mailto:akintolasamuel30@gmail.com">akintolasamuel30@gmail.com</a></p>
+      <p>Phone Number: <a href="tel:+2349069123150">+2349069123150</a></p>
+      <p>WhatsApp: <a href="https://wa.link/n6zdut">WhatsApp Chat Me</a></p>
+       <p>TikTok: <a href=""></a></p>
+    </article>
+
+    <p><a href="#">Back to top</a></p>
+
+    <p>&copy; <a href="{{ url_for('aboutme') }}"  target="_blank">Samuel Akintola</a> 2025. All right reserved.</p>
+  </footer>
+</body>
+
+</html>

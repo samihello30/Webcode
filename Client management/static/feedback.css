@@ -1,0 +1,194 @@
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* --- Body --- */
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Flash Messages --- */
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flashes li {
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 600;
+}
+
+.flashes li.success { background: #d4edda; color: #155724; }
+.flashes li.error   { background: #f8d7da; color: #721c24; }
+.flashes li.info    { background: #cce5ff; color: #004085; }
+
+/* --- Header --- */
+header {
+  background: indigo;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #f1c40f;
+}
+
+header h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+/* --- Main Content --- */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 25px 20px;
+}
+
+article {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* --- Form Styling --- */
+form p {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: indigo;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #c9c9ff;
+  border-radius: 6px;
+  background: #f7f7ff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: indigo;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px #f1c40f33;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* --- Button --- */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid indigo;
+  background: indigo;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background: #3a0066;
+  border-color: #3a0066;
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 30px;
+  padding: 0;
+  display: block; 
+}
+
+/* Section (Back to Dashboard, Log out, Send feedback) */
+footer nav {
+  background: black;
+  border-top: 4px solid #f1c40f; 
+  padding: 12px 20px;
+  display: flex;                /* side by side */
+  justify-content: center;
+  gap: 15px;                    /* spacing between buttons */
+}
+
+footer nav a {
+  background-color: black;     /* compact button style */
+  color: whitesmoke;
+  padding: 6px 12px;            /* smaller padding */
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;          /* prevents wrapping */
+  flex: 0 0 auto;               /* don’t stretch full width */
+  display: inline-block;        /* keep them compact */
+  transition: background-color 0.3s;
+}
+
+footer nav a:hover {
+  background-color: #f1c40f;
+  color: black;
+}
+
+/* Bottom copyright line */
+footer p {
+  background: indigo;
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 0.9em;
+  color: white;
+}
+
+footer p a {
+  color: #f1c40f;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  article {
+    max-width: 92vw;
+    padding: 20px;
+  }
+  footer nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

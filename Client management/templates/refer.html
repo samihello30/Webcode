@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This page is the login page for the client manager">
+				<link rel="icon" href="" type="image/x-icon">
+				<link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}" type="text/css">
+				<title>Refer a Client</title>
+</head>
+<body>
+				{% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+				<header>
+				<h1>
+								{{ business_name }}
+				</h1>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<h2>Refer a Client</h2>
+												<section>
+																<marquee direction="left" scrollamount="3"> Fill out the forms with the referral details</marquee>
+																<form action="{{ url_for('refer') }}" method="post">
+																				<div>
+																								<label for="firstName">First Name</label>
+																								<input type="text" id="firstName" name="firstName" required autocomplete="on"  placeholder="e.g. Jane">
+																				</div>
+																				
+																				<div>
+																								<label for="lastName">Last Name</label>
+																								<input type="text" id="lastName" name="lastName" required autocomplete="on"  placeholder="e.g. Doe">
+																				</div>
+																				
+																				<div>
+																								<label for="number">Phone Number</label>
+																								<input type="tel" id="number" name="number" required autocomplete="on"  placeholder="e.g. 08000000000">
+																				</div>
+																				
+																				<div>
+																								<label for="department">Department</label>
+																								<input type="text" id="department" name="department" required autocomplete="on"  placeholder="e.g. Business Adminstrator">
+																				</div>
+																				
+																				<div>
+																								<label for="matric_no">Matric Number</label>
+																								<input type="text" id="matric_no" name="matric_no" required autocomplete="on"  placeholder="e.g. 0000">
+																				</div>
+																				
+																				<div>
+																								<label for="topic">Topic</label>
+																								<input type="text" id="topic" name="topic" autocomplete="on"  placeholder="Enter topic in full">
+																				</div> 
+																				
+																				<div>
+																							<label for="referrer">Referred By</label>
+																								<input type="text" id="referrer" name="referrer" list="referrer-list">
+																								<datalist id="referrer-list">
+																												{% for user in users %}
+																																<option value="{{ user['Referral Code'] }}"></option>
+																												{% endfor %}		<option value="blue"></option>
+																								</datalist>
+																				</div> 
+																				
+																				<div>
+																								<button type="submit">Submit</button>
+																				</div>
+																</form>
+												</section>
+												
+								</article>
+				</main>
+				
+				<hr>
+				
+				<footer>
+    <section>
+        <a href="{{ url_for('homepage') }}">Back home</a>
+        <a href="{{ url_for('feedback', mode='login') }}" target="_blank">Send feedback</a>
+    </section>	
+
+    <p>&copy; <a href="{{ url_for('aboutme') }}" target="_blank">Samuel Akintola</a> 2025. All rights reserved.</p>
+</footer>
+</body>
+</html>

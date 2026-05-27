@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Samuel Akintola">
+    <meta name="description" content="This page is the admin control page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_feedback.css') }}" type="text/css">
+    <title>Client Management / Admin</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+				    {% if messages %}
+								    <ul class="flashes">
+								        {% for category, message in messages %}
+								        				<li class="{{ category }}">{{ message }}</li>
+								        {% endfor %}
+								    </ul>
+				    {% endif %}
+    {% endwith %}
+    <header>
+        <h1>Visitor's Feedbacks</h1>
+    </header>
+    
+    <hr>
+    
+    <main>
+        <article>
+            <h2>{{ greeter }}</h2>
+            {% for feedback in feedbacks %}
+            <section class="feedback-card">
+                <h3>Feedback from {{ feedback["Full Name"] }}</h3>
+                <p><strong>Email:</strong> {{ feedback["Email Address"] }}</p>
+                <p><strong>Message:</strong> {{ feedback["Feedback"] }}</p>
+                <div class="actions">
+                    <a href="mailto:{{ feedback['Email Address'] }}">Reply</a>
+                    <a href="{{ url_for('delete_feedbacks', id=loop.index0) }}">Delete</a>
+                </div>
+            </section>
+            {% endfor %}
+        </article>
+    </main>
+    
+    <hr>
+    
+    <footer>
+        <section>
+            <a href="{{ url_for('admin') }}">Back to Dashboard</a>
+            <a href="{{ url_for('logout') }}">Log out</a>
+        </section>
+        
+        <p>&copy; <a href="{{ url_for('aboutme') }}" target="_blank">Samuel Akintola</a> 2025. All rights reserved.</p>
+    </footer>
+</body>
+</html>

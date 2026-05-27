@@ -1,0 +1,245 @@
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Body --- */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #fdfdfd, #f3f3f9);
+  color: #222;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  text-align: center;
+  background: indigo;
+  color: #fff;
+  padding: 30px 20px;
+  border-bottom: 5px solid #f1c40f;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: 1.3rem;   /* reduced size */
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* --- Divider --- */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0;
+}
+
+/* --- Main Content --- */
+main {
+  flex-grow: 1;
+  display: block;   /* force vertical stacking */
+  padding: 40px 20px;
+}
+
+article {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  margin: 0 auto 25px auto; /* center and add spacing */
+}
+
+article h2 {
+  color: indigo;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* --- Forms --- */
+form {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+  display: block; /* stack fields vertically */
+}
+
+form p, form div {
+  margin-bottom: 18px;
+  display: block;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: indigo;
+}
+
+input[type="text"],
+input[type="tel"],
+input[list],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+input:focus {
+  border-color: #f1c40f;
+  box-shadow: 0 0 6px rgba(241,196,15,0.4);
+  outline: none;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+button {
+  background: indigo;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+button:hover {
+  background: #4b0082;
+  transform: translateY(-2px);
+}
+
+/* --- Special styling for second form (formtwo) --- */
+form#formtwo {
+  margin-top: 30px; /* extra spacing above */
+  border: 2px solid #f1c40f; /* highlight difference */
+}
+
+/* --- Flash Messages --- */
+.flashes {
+  list-style: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.flashes li {
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.flashes li.success {
+  background: #d4edda;
+  color: #155724;
+}
+.flashes li.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+.flashes li.info {
+  background: #cce5ff;
+  color: #004085;
+}
+
+/* --- Footer (from your previous CSS) --- */
+footer {
+  text-align: center;
+  color: #fff;
+  margin-top: 30px;
+  padding: 0;
+  display: block;
+}
+
+footer section {
+  background: black;
+  border-top: 4px solid #f1c40f;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer section a {
+  background-color: black;
+  color: whitesmoke;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+footer section a:hover {
+  background-color: #f1c40f;
+  color: black;
+}
+
+footer p {
+  background: indigo;
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 0.9em;
+  color: white;
+}
+
+footer p a {
+  color: #f1c40f;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  article {
+    padding: 20px;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+/* --- Checkbox side by side --- */
+.checkbox-group {
+  display: flex;              /* put items in a row */
+  align-items: center;        /* align vertically */
+  gap: 8px;                   /* space between checkbox and label */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;                  /* remove default margin */
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: 600;
+  color: indigo;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="author" content="Samuel Akintola">
+				<meta name="description" content="This is a sign up page for Samuel Akintola website">
+				<link rel="icon" href="" type="image/x-icon">
+					<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}" type="text/css">
+				<title>Create a new account</title>
+</head>
+<body>
+				<header>
+				<h1>
+							Create an Account
+				</h1>
+				</header>
+				
+				<hr>
+				
+				<main>
+								<article>
+												<h2>Sign Up</h2>
+												<form  method="POST">
+																<p>
+																<label for="firstName">First Name</label><br>
+																<input id="firstName" name="firstName" type="text" required autocomplete="on" placeholder="e.g. John">
+																</p>
+																
+																<p>
+																<label for="lastName">Last Name</label><br>
+																<input id="lastName" name="lastName" type="text" required autocomplete="on" placeholder="e.g. Doe">
+																</p> 
+																
+																	<p>
+																<label for="email">Email Address</label><br>
+																<input id="email" name="email" type="email" required autocomplete="on" placeholder="e.g. name@gmail.com">
+																</p> 
+																
+																<p>
+																<label for="password">Password</label><br>
+																<input id="password" name="password" type="password" required placeholder="e.g. admin123@">
+												</p>
+																
+																<p>Alread have an account? <a href="index.html" target="_blank"</a>Login</p>
+																
+																<p>
+																				<button type="submit">Sign up</button>
+																</p>
+												</form>
+								</article>
+				</main>
+				
+				<hr>
+				
+				<footer>
+								<p>&copy; Samuel Akintola 2025. All rights reserved.</p>
+				</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Samuel Akintola">
+    <meta name="description" content="This webpage is under development">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <ul>
+                    <li class="flash {{ category }}">{{ message }}</li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <header>
+  <h1 class="brand">
+    <a href="{{ url_for('wa.whatsapp_link') }}">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor" d="M19.11 17.39c-.27-.14-1.58-.78-1.83-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.33-.79-.7-1.32-1.56-1.47-1.83-.15-.27-.02-.42.11-.55.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.3-.02-.43-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26s.97 2.62 1.1 2.8c.14.18 1.91 2.92 4.63 4.09.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.58-.64 1.8-1.26.22-.62.22-1.15.15-1.26-.07-.11-.25-.18-.52-.32zM16.02 4C9.93 4 5 8.93 5 15.02c0 2.13.62 4.12 1.69 5.8L5 28l7.36-1.93c1.61.88 3.46 1.38 5.42 1.38h.01c6.09 0 11.02-4.93 11.02-11.02S22.11 4 16.02 4z"/>
+      </svg>
+      <span>WALink Generator</span>
+    </a>
+  </h1>
+  {% block header %}{% endblock %}
+</header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+        <div>
+            {% block footer %}{% endblock %}
+        </div>
+        <p>&copy; <a href="" target="_blank">Samuel Akintola</a> 2026. All Rights Reserved.</p>
+    </footer>
+    
+  <script>
+  // auto-dismiss flashes after 3.5s, with fade
+  document.querySelectorAll('.flash').forEach(el => {
+    setTimeout(() => {
+      el.classList.add('hide');
+      el.addEventListener('transitionend', () => el.remove(), { once:true });
+    }, 3500);
+  });
+</script>
+    
+</body>
+</html>

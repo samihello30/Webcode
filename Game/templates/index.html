@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+				<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+				<meta name="viewport" content="device-width, initial-scale=1.0">
+				<title>Game!</title>
+				<style>
+				/* General reset */
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* Main container */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+form {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+form button {
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background: #1a5edb;
+  transform: scale(1.05);
+}
+
+/* Result list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+ul li {
+  background: #f0f4ff;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Add icons before each result line */
+ul li:nth-child(1)::before {
+  content: "🧑";
+}
+ul li:nth-child(2)::before {
+  content: "💻";
+}
+ul li:nth-child(3)::before {
+  content: "🏆";
+}
+
+/* Dashboard */
+section {
+  text-align: center;
+}
+
+section h2 {
+  color: #2575fc;
+  margin-bottom: 0.5rem;
+}
+
+section p {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+				</style>
+</head>
+<body>
+				<header>
+				<h1>
+								Rock, Paper, and Scissors
+				</h1>
+				</header>
+				
+				<main>
+								<div>
+												<form action="{{ url_for('main') }}" method="post">
+																<button type="submit" value="Rock" name="game">Rock</button>
+																<button type="submit" value="Paper" name="game">Paper</button>
+																<button type="submit" value="Scissors" name="game">Scissors</button>
+												</form>
+								</div>
+								
+								<ul>
+																<li>You Choose: {{ you }}</li>
+																<li>Computer Choose: {{ computer }}</li>
+																<li>Result: {{ outcome }}</li>
+												</ul>
+								
+								<section>
+												<h2>Results Dashboard</h2>
+												<p>Wins: {{ wins }} | Losses: {{ losses }} | Ties: {{ ties }}</p>
+								</section>
+				</main>
+</body>
+</html>

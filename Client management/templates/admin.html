@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <meta name="author" content="Samuel Akintola">
+    <meta name="description" content="This page is the admin control page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}" type="text/css">
+    <title>Client Management</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <header>
+        <h1>Administrator</h1>
+    </header>
+    
+    <hr>
+    
+    <main>
+        <article>
+            <section>
+                <h2>{{ greeter }} Samuel!</h2>
+                <ul class="nav-links">
+                    <li><a href="#">Management Users</a></li>
+                    <li><a href="{{ url_for('admin_feedbacks') }}">Feedback</a></li>
+                    <!-- TODO: Add more -->
+                </ul>
+            </section>
+        </article>
+    </main>
+    
+    <hr>
+    
+    <footer>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+            <a href="{{ url_for('logout') }}">Log out</a>
+        </nav>
+        
+        <p>&copy; <a href="{{ url_for('aboutme') }}" target="_blank">Samuel Akintola</a> 2025. All rights reserved.</p>
+    </footer>
+</body>
+</html>
