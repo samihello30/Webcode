@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+				<meta content="text/html; charset=UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Hello, World!</title>
+</head>
+<body>
+				<header>
+								<h1>
+												Login to Your Account
+								</h1>
+				</header>
+				
+				<main>
+								<form method="post" action="{{ url_for('main') }}">
+												<div>
+																<label for="email">Email Address
+																				<br><input type="email" id="email" name="email" placeholder="www.example@gmail.com" required>
+																</label>
+												</div>
+												<div>
+															<label for="password">Password
+																			<br><input type="password" id="password" name="password" required>
+															</label>	
+												</div>
+												<div>
+																<button type="submit">Login</button>
+												</div>
+								</form>
+				</main>
+				
+				<footer>
+								<p>&copy; <a href="">Samuel Akintola</a> 2026. All Rights Reserved.</p>
+				</footer>
+</body>
+</html>
